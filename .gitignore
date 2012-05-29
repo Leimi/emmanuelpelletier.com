@@ -1,0 +1,14 @@
+.sass-cache
+.livereload
+*.sublime-project
+*.sublime-workspace
+/app/Config/core.php
+/app/Config/database.php
+/app/tmp/*
+/app/cakephp/*
+/app/webroot/web-dial/*
+/app/webroot/covoiturage/*
+/app/webroot/GmapImage2TileGenerator/*
+/app/webroot/tshaker/*
+/app/webroot/img/tshaker/*
+/app/webroot/img/smartmap/*
