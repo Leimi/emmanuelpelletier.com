@@ -1,0 +1,115 @@
+/* appareils mobiles : réso max qHD pour les Android haut de gamme (540px de large ou de long suivant l'orientation du tél) et iPhone 4 */
+@media screen and (max-width: 640px), screen and (-webkit-min-device-pixel-ratio: 2) {
+	#content-wrapper, #footer, *.halfwidth, *.twothird, *.rght, *.lft, p.lft.halfwidth, p.rght.halfwidth, *.with-app {
+		width: auto; 
+		min-width: 0 !important;
+		max-width: none !important;
+		margin: auto;
+		padding: 0;
+		float: none;
+		position: static;
+		word-wrap: break-word;
+	}
+	#container {
+		top: auto;
+	}
+	#content-wrapper {
+		padding: 15px 5px 0 !important;
+	}
+	.no-js {
+		#header {
+			position: static;
+		}
+	}
+	#header, #container {
+		top: auto;
+	}
+	#header {
+		height: auto;
+		position: absolute;
+		left: 0; right: 0;
+		border-bottom: 2px solid #aaa;
+		&.closed {
+			height: 0;
+			overflow: visible;
+			> #headerContainer { display: none;}
+		}
+		z-index: 100;
+	}
+	#headerContainer {
+		z-index: 100;
+		> div { display: none; }
+	}
+	#headerContainer > #navContainer { display: block;}
+	#header-toggler {
+		background: #DDD;
+		padding: 5px 10px;
+		border-radius: 0 0 10px 10px;
+		position: absolute;
+		right: 5px;
+		z-index: 90;
+		&:before {
+			content:attr(data-hide);
+		}
+		#header.closed + & {
+			position: absolute;
+			top: 0;
+			&:before {
+				content:attr(data-show);
+			}
+		}
+	}
+	#navigation {
+		text-align: left;
+		li {
+			margin: 15px 0;
+		}
+		a, a:active, a:visited {
+			padding: 0;
+			min-width: 0;
+			height: auto;
+			line-height: normal !important;
+		}
+	}
+	.only-mobile {
+		display: block;
+	}
+	span.only-mobile {
+		display: inline;
+	}
+	.cool-link {
+		padding: 15px 10px;
+		font-size: 1.1em;
+	}
+	#cake p, #php p, #ror p, #sql p { width: auto; }
+	#cake img, #php img, #ror img, #sql img { @include hidden; }
+	input[type="email"], input[type="url"], input[type="text"], textarea {
+		padding: 5px !important;width: 100% !important;margin: 3px 0 !important;
+	}
+	#footer {
+		margin: 30px 0 50px;
+	}
+	#developpeur-applications {
+		.smartmap {
+			.twothird { max-width: none; min-width: 0;}
+		}
+	}
+}
+
+
+// Print styles
+// Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+@media print {
+	* { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; } // Black prints faster: h5bp.com/s
+	a, a:visited { text-decoration: underline; }
+	a[href]:after { content: " (" attr(href) ")"; }
+	abbr[title]:after { content: " (" attr(title) ")"; }
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  // Don't show links for images, or javascript/internal links
+	pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+	thead { display: table-header-group; } // h5bp.com/t
+	tr, img { page-break-inside: avoid; }
+	img { max-width: 100% !important; }
+	@page { margin: 0.5cm; }
+	p, h2, h3 { orphans: 3; widows: 3; }
+	h2, h3 { page-break-after: avoid; }
+}
