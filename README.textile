@@ -1,0 +1,6 @@
+h1. Mon site perso
+
+Cette appli CakePHP 2 ne vous sert surement à rien.
+Si vous êtes quand même un taré et que vous voulez forker, il y a 2 dépendances fortes :
+* CakePHP 2
+* BakingPlate
