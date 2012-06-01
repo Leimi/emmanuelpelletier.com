@@ -15,7 +15,10 @@
 
 	<?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon', 'rel' => 'shortcut icon')); ?>
 	<?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon', 'rel' => 'apple-touch-icon-precomposed')); ?>
-	<?php echo $this->AssetCompress->css('style.css', array('raw' => true)); ?>
+	<?php 
+		$rawAssets = Configure::read('debug') > 0;
+		echo $this->AssetCompress->css('style.css', array('raw' => $rawAssets)); 
+	?>
 	<?php echo $this->Html->script(array('modernizr.custom')); ?>
 </head>
 <body>
@@ -64,7 +67,7 @@
 			<a title="Contactez-moi par mail" href="mailto:&#101;&#109;&#109;&#097;&#110;&#117;&#101;&#108;&#064;&#101;&#109;&#109;&#097;&#110;&#117;&#101;&#108;&#112;&#101;&#108;&#108;&#101;&#116;&#105;&#101;&#114;&#046;&#099;&#111;&#109;">e-mail</a> &mdash; <a class="tweet" target="_blank" href="https://twitter.com/intent/user?screen_name=Leimina">twitter</a>
 		</p>
 	</div>
-	<?php echo $this->AssetCompress->script('scripts.js', array('raw' => true)); ?>
+	<?php echo $this->AssetCompress->script('scripts.js', array('raw' => $rawAssets)); ?>
 	<div id="scripts">
 	<?php echo $scripts_for_layout ?>
 	</div>
