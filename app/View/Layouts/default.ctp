@@ -16,7 +16,7 @@
 	<?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon', 'rel' => 'shortcut icon')); ?>
 	<?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon', 'rel' => 'apple-touch-icon-precomposed')); ?>
 	<?php 
-		$rawAssets = Configure::read('debug') > 0;
+		$rawAssets = !Configure::read('inProduction');
 		echo $this->AssetCompress->css('style.css', array('raw' => $rawAssets)); 
 	?>
 	<?php echo $this->Html->script(array('modernizr.custom')); ?>
