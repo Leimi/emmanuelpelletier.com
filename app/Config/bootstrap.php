@@ -143,3 +143,6 @@ TEXT;
  *
  */
 CakePlugin::loadAll();
+
+Configure::write('inProduction', (!empty($_SERVER['SERVER_NAME']) && strpos($_SERVER['SERVER_NAME'], 'emmanuelpelletier') !== false));
+
