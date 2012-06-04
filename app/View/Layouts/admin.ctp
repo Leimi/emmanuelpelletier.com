@@ -34,7 +34,6 @@
 		</div>
 	</div>
 	<?php
-	echo $this->Plate->lib('jquery', array('compressed' => true, 'fallback' => 'jquery-1.7.0.min'));
 	echo $this->AssetCompress->script('admin.js', array('raw' => Configure::read('debug') > 0));
 
 	#!# echo $this->AssetCompress->script('script');
