@@ -24,5 +24,7 @@ class NotesController extends AppController {
 		if (!empty($data)) 
 			$data = Set::sort($data, '{n}.Note.created', 'desc');
 		$this->set('notes', $data);
+
+		$this->set('title_for_layout', 'Les notes : tweets, articles de blog sur le développement web à Angers');
 	}
 }
