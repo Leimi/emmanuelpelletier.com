@@ -472,7 +472,8 @@ html.noplaceholder .comments .input input { width: 100%; }
   #cake img, #php img, #ror img, #sql img { display: none !important; visibility: hidden; }
   input[type="email"], input[type="url"], input[type="text"], textarea { padding: 5px !important; width: 100% !important; margin: 3px 0 !important; }
   #footer { margin: 30px 0 50px; }
-  #developpeur-applications .smartmap .twothird { max-width: none; min-width: 0; } }
+  #developpeur-applications .smartmap .twothird { max-width: none; min-width: 0; }
+  .tags { position: relative; top: 0; } }
 @media print { * { background: transparent !important; color: black !important; box-shadow: none !important; text-shadow: none !important; }
   a, a:visited { text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
