@@ -99,6 +99,13 @@ a.web {
   background-color: #428EC9;
   &:after { content: "\0020 \2192"; }
 }
+a.github {
+  @extend .cool-link;
+  background-color: #eee;
+  &, &:focus, &:hover, &:visited, &:visited:hover, &:visited:focus, &:active { color: #333; border: 1px solid #D4D4D4; }
+
+  text-shadow: 0 1px 0 white;
+}
 a[href*="mailto"]:before {
   content: '@';
   color: lighten($fontColor, 40%);
@@ -119,6 +126,10 @@ a[href*="mailto"]:before {
   max-width:790px;
   min-width: 471px;
 }
+.app {
+  @include cf;
+  position: relative;
+}
 .gallery { width: 280px; margin-top: 10px;}
 .gallery img {
   width: 120px;
@@ -129,6 +140,36 @@ a[href*="mailto"]:before {
 .download-actions { width: 170px; text-align: center; margin-top: 10px;
   a { margin: 0 0 20px; }
   img { margin: 0 10px; }
+}
+
+.tags {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+.tag {
+  @include display-ib;
+  padding: 0 8px;
+  border-radius: 3px;
+  color: white;
+  background: #444;
+  font-size: small;
+  text-shadow: 0 1px 0 white;
+  &.android {
+    background: lighten($green, 40%);
+    border: 1px solid lighten($green, 30%);
+    color: $green;
+  }
+  &.web {
+    background: lighten($blueOcean, 40%);
+    border: 1px solid lighten($blueOcean, 30%);
+    color: $blueOcean;
+  }
+  &.mobile {
+    background: lighten($orange, 40%);
+    border: 1px solid lighten($orange, 30%);
+    color: $orange;
+  }
 }
 
 
@@ -253,7 +294,9 @@ p.rght.halfwidth { padding-left: 1%;}
 
 #developpeur-applications {
   > div { margin-bottom: 30px;}
-  h3 { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; }
+  h3 { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; 
+    &:hover { background-color: #dedede;}
+  }
   .yata h3 { @include common-sprite(yata-icon); padding-left: 50px;}
   .headset h3 { @include common-sprite(headset-profiler-icon); padding-left: 55px; }
   .smartmap {

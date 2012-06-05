@@ -212,16 +212,19 @@ a:visited, a:visited:hover, a:visited:focus { color: #003f81; }
 
 input[type="email"], input[type="url"], input[type="text"], textarea { margin: 3px 0; padding: 5px; border: 0; border-bottom: 1px solid #DDD; border-right: 1px solid #DDD; -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3); box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3); }
 
-.cool-link, a.download, a.web { display: block; text-align: center; line-height: 1.2em; -webkit-transition: box-shadow 0.15s linear; -moz-transition: box-shadow 0.15s linear; -ms-transition: box-shadow 0.15s linear; -o-transition: box-shadow 0.15s linear; transition: box-shadow 0.15s linear; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 3px; text-shadow: #565 0 1px 0; }
-.cool-link, a.download, a.web, .cool-link:focus, a.download:focus, a.web:focus, .cool-link:hover, a.download:hover, a.web:hover, .cool-link:visited, a.download:visited, a.web:visited, .cool-link:visited:hover, a.download:visited:hover, a.web:visited:hover, .cool-link:visited:focus, a.download:visited:focus, a.web:visited:focus, .cool-link:active, a.download:active, a.web:active { color: white; border: none; }
-.cool-link:focus, a.download:focus, a.web:focus, .cool-link:hover, a.download:hover, a.web:hover { -webkit-box-shadow: 0 3px 4px #555555; -moz-box-shadow: 0 3px 4px #555555; box-shadow: 0 3px 4px #555555; }
-.cool-link:active, a.download:active, a.web:active { -webkit-box-shadow: 0 3px 4px #222222; -moz-box-shadow: 0 3px 4px #222222; box-shadow: 0 3px 4px #222222; }
+.cool-link, a.download, a.web, a.github { display: block; text-align: center; line-height: 1.2em; -webkit-transition: box-shadow 0.15s linear; -moz-transition: box-shadow 0.15s linear; -ms-transition: box-shadow 0.15s linear; -o-transition: box-shadow 0.15s linear; transition: box-shadow 0.15s linear; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 3px; text-shadow: #565 0 1px 0; }
+.cool-link, a.download, a.web, a.github, .cool-link:focus, a.download:focus, a.web:focus, a.github:focus, .cool-link:hover, a.download:hover, a.web:hover, a.github:hover, .cool-link:visited, a.download:visited, a.web:visited, a.github:visited, .cool-link:visited:hover, a.download:visited:hover, a.web:visited:hover, a.github:visited:hover, .cool-link:visited:focus, a.download:visited:focus, a.web:visited:focus, a.github:visited:focus, .cool-link:active, a.download:active, a.web:active, a.github:active { color: white; border: none; }
+.cool-link:focus, a.download:focus, a.web:focus, a.github:focus, .cool-link:hover, a.download:hover, a.web:hover, a.github:hover { -webkit-box-shadow: 0 3px 4px #555555; -moz-box-shadow: 0 3px 4px #555555; box-shadow: 0 3px 4px #555555; }
+.cool-link:active, a.download:active, a.web:active, a.github:active { -webkit-box-shadow: 0 3px 4px #222222; -moz-box-shadow: 0 3px 4px #222222; box-shadow: 0 3px 4px #222222; }
 
 a.download { background-color: #07B11A; }
 a.download:after { position: relative; top: -2px; content: "\0020 \2193"; }
 
 a.web { font-size: 1.35em; background-color: #428EC9; }
 a.web:after { content: "\0020 \2192"; }
+
+a.github { background-color: #eee; text-shadow: 0 1px 0 white; }
+a.github, a.github:focus, a.github:hover, a.github:visited, a.github:visited:hover, a.github:visited:focus, a.github:active { color: #333; border: 1px solid #D4D4D4; }
 
 a[href*="mailto"]:before { content: '@'; color: #888888; }
 
@@ -231,6 +234,11 @@ a[href*="mailto"]:before { content: '@'; color: #888888; }
 
 .twothird { max-width: 790px; min-width: 471px; }
 
+.app { position: relative; }
+.app:before, .app:after { content: ""; display: table; }
+.app:after { clear: both; }
+.app { *zoom: 1; }
+
 .gallery { width: 280px; margin-top: 10px; }
 
 .gallery img { width: 120px; height: 200px; margin: 0 5px; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; }
@@ -238,6 +246,13 @@ a[href*="mailto"]:before { content: '@'; color: #888888; }
 .download-actions { width: 170px; text-align: center; margin-top: 10px; }
 .download-actions a { margin: 0 0 20px; }
 .download-actions img { margin: 0 10px; }
+
+.tags { position: absolute; top: 20px; right: 0; }
+
+.tag { display: inline-block; *display: inline; *zoom: 1; padding: 0 8px; border-radius: 3px; color: white; background: #444; font-size: small; text-shadow: 0 1px 0 white; }
+.tag.android { background: #cdeacd; border: 1px solid #a9dba9; color: #46a546; }
+.tag.web { background: #c4dcee; border: 1px solid #9dc4e2; color: #347bb2; }
+.tag.mobile { background: #fee9cc; border: 1px solid #fdd49a; color: #f89406; }
 
 h2, h3 { font-size: xx-large; font-style: italic; font-weight: normal; margin: 10px 0; }
 
@@ -304,6 +319,7 @@ p.rght.halfwidth, p.rght.comments-wrapper, .comments-wrapper + p.rght.comments.f
 
 #developpeur-applications > div { margin-bottom: 30px; }
 #developpeur-applications h3 { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; }
+#developpeur-applications h3:hover { background-color: #dedede; }
 #developpeur-applications .yata h3 { background-position: 0 -75px; padding-left: 50px; }
 #developpeur-applications .headset h3 { background-position: 0 -143px; padding-left: 55px; }
 #developpeur-applications .smartmap h3 { background-position: 0 0; padding-left: 62px; background-position: 0 -5px; }
@@ -451,7 +467,7 @@ html.noplaceholder .comments .input input { width: 100%; }
   #navigation a, #navigation a:active, #navigation a:visited { padding: 0; min-width: 0; height: auto; line-height: normal !important; }
   .only-mobile { display: block; }
   span.only-mobile { display: inline; }
-  .cool-link, a.download, a.web { padding: 15px 10px; font-size: 1.1em; }
+  .cool-link, a.download, a.web, a.github { padding: 15px 10px; font-size: 1.1em; }
   #cake p, #php p, #ror p, #sql p { width: auto; }
   #cake img, #php img, #ror img, #sql img { display: none !important; visibility: hidden; }
   input[type="email"], input[type="url"], input[type="text"], textarea { padding: 5px !important; width: 100% !important; margin: 3px 0 !important; }
