@@ -5,6 +5,7 @@
 /app/Config/core.php
 /app/Config/database.php
 /app/tmp/*
+!/app/tmp/asset_compress*
 /app/cakephp/*
 /app/webroot/web-dial/*
 /app/webroot/covoiturage/*
