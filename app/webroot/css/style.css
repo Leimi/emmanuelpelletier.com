@@ -403,6 +403,8 @@ p.rght.halfwidth, p.rght.comments-wrapper, .comments-wrapper + p.rght.comments.f
 
 .article { background-position: 0 -283px; }
 
+.article-date { font-size: small; font-style: italic; }
+
 .comments fieldset { border: none; }
 .comments .submit { float: right; }
 .comments textarea { width: 100%; }

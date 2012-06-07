@@ -417,6 +417,10 @@ p.rght.halfwidth { padding-left: 1%;}
 .favorite { @extend .icon-on-left; @include common-sprite(star); }
 .article { @extend .icon-on-left; @include common-sprite(newspaper); }
 
+.article-date {
+  font-size: small;
+  font-style: italic;
+}
 
 .comments {
   fieldset {

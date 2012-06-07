@@ -1,6 +1,10 @@
 <?php 
-if ($page['Page']['type'] != 'page')
-	echo '<h1>'.$page['Page']['name'].'</h1>'; 
+if ($page['Page']['type'] != 'page') {
+	echo '<h1>'.$page['Page']['name'].'</h1>';
+	$date = strtotime($page['Page']['modified']);
+	$date = ($page['Page']['created'] !== $page['Page']['modified'] ? 'Dernière mise à jour le ' : 'Le ').date('d', $date).' '.$this->Fr->month(date('n', $date)).' '.date('Y', $date);
+	echo '<p class=article-date>'.$date.'</p>';
+} 
 if ($this->Session->check('Auth.User.id')) {
 	$editAction = $page['Page']['type'] == 'article' ? 'edit_textile' : 'edit_html';
 	echo $this->Html->link('Modifier', array('controller' => 'pages', 'action' => $editAction, $page['Page']['id'], 'admin' => true));
