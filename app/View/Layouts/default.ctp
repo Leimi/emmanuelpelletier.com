@@ -71,7 +71,12 @@
 	<div id="scripts">
 	<?php echo $scripts_for_layout ?>
 	</div>
-	<?php echo $this->Plate->analytics(); ?>
+	<script>
+        var _gaq=[['_setAccount','UA-13184829-2'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 
 	<div id='konamiiii' class='hidden'>
 		<p style='text-align: center'>Bravo, tu as trouvé la cachette ultra secrète de ce site ! Ici se cache...</p>
