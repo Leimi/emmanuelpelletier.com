@@ -188,14 +188,14 @@ $(function() {
 		$konami.find('.reward').html('chargement');
 		if (Modernizr.audio) document.getElementById('discovered-sound').play();
 		$.colorbox({ html: $konami.html(), top: "3%", height: "90%", width: "550px", transition: "none"});
-		$.getJSON('/konami', function(data) { 
+		$.getJSON('/konami', function(data) {
 			if (Modernizr.audio) document.getElementById('discovered-sound-2').play();
-			$('#cboxLoadedContent').find('.reward').html('Une image ' + (data.from.indexOf('bonjourmadame') !== -1 ? ' (un peu NSFW) ' : '') + '! <br><img src="' + data.src + '" alt="Récompense en image"><br>Génial.'); 
+			$('#cboxLoadedContent').find('.reward').html('Une image ' + (data.from.indexOf('bonjourmadame') !== -1 ? ' (un peu NSFW) ' : '') + '! <br><img src="' + data.src + '" alt="Récompense en image"><br>Génial.<br><br>PS : Si jamais tu repasses par là, peut-être que tu retrouveras pas la même chose, qui sait...');
 		});
 	};
 	$(document).on('keydown', function(e) {
-	  if (typed.length >= konami.length) typed.shift();
-	  typed.push(e.keyCode);
-	  if (typed.toString() == konami.toString()) onTypedKonamiCode();
+		if (typed.length >= konami.length) typed.shift();
+		typed.push(e.keyCode);
+		if (typed.toString() == konami.toString()) onTypedKonamiCode();
 	});
 }());

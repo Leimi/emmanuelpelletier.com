@@ -3,8 +3,8 @@ App::uses('AppController', 'Controller');
 class ImagesController extends AppController {
 	var $uses = null;
 	public function random() {
-		App::uses('RandomImage', 'Vendor');
-		$img = new RandomImage();
+		App::uses('RandomTumblrImage', 'Vendor');
+		$img = new RandomTumblrImage();
 		echo '{ "src" : "'.$img->src.'", "from" : "'.$img->from.'" }';
 
 		if (!empty($this->request->params['konami']) && Configure::read('inProduction')) {
