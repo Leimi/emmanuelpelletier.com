@@ -144,5 +144,4 @@ TEXT;
  */
 CakePlugin::loadAll();
 
-Configure::write('inProduction', (!empty($_SERVER['SERVER_NAME']) && strpos($_SERVER['SERVER_NAME'], 'emmanuelpelletier') !== false));
-
+Configure::write('inProduction', (!empty($_SERVER['SERVER_NAME']) && in_array($_SERVER['SERVER_NAME'], array('emmanuelpelletier.com', 'manu.habite.la'))));
