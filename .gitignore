@@ -4,13 +4,13 @@
 *.sublime-workspace
 /app/Config/core.php
 /app/Config/database.php
+/app/Config/bbootstrap.php
 /app/tmp/*
 !/app/tmp/asset_compress*
-/app/cakephp/*
-/app/webroot/web-dial/*
-/app/webroot/covoiturage/*
-/app/webroot/GmapImage2TileGenerator/*
-/app/webroot/tshaker/*
+/cakephp/
+/smartmap_original/
 /app/webroot/img/tshaker/*
 /app/webroot/img/smartmap/*
 *en conflit*
+/app/webroot/files/*
+sftp-config.json
