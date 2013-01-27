@@ -33,6 +33,7 @@ input:focus:invalid, textarea:focus:invalid {
 code, pre {
   padding: 0 3px 2px;
   font-family: $monospace;
+  font-size: 0.8em;
   @include border-radius(3px);
 }
 code {
@@ -173,9 +174,9 @@ a[href*="mailto"]:before {
 }
 
 
-h2, h3 { font-size: xx-large; font-style: italic; font-weight: normal; margin: 10px 0;}
+h2, h3 { font-style: italic; font-weight: normal; margin: 10px 0;}
 h2 { margin: 20px 0 10px;}
-h3 { font-size: x-large; }
+h3 {  }
 p { margin: 10px 0;}
 .gray { color: #cdd; @include display-ib;}
 .gray:hover { color: $fontColor;}
