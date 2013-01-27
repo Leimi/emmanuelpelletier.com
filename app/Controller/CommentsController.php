@@ -1,5 +1,4 @@
 <?php
-//simple baking as of now
 App::uses('AppController', 'Controller');
 /**
  * Comments Controller
@@ -13,6 +12,23 @@ class CommentsController extends AppController {
 			$this->Comment->create();
 			$this->request->data['Comment']['active'] = 0;
 			if ($this->Comment->save($this->request->data)) {
+				$id = $this->Comment->id;
+				$post = $this->Comment->Page->find('first', array('conditions' => array('id' => $this->request->data['Comment']['page_id'])));
+				App::uses('CakeEmail', 'Network/Email');
+				$email = new CakeEmail();
+				$message = 'Commentaire sur l\'article <a href="http://emmanuelpelletier.com/'.$post['Page']['slug'].'"><strong>'.$post['Page']['name'].'</strong></a> posté le '.date("d/m/Y à H:i").".<br>";
+				foreach ($this->request->data['Comment'] as $key => $value) {
+					if (in_array($key, array('user', 'link', 'name'))) {
+						$message .= $value."<br>";
+					}
+				}
+				$message .= '<a href="http://emmanuelpelletier.com/admin/comments/invert_field/'.$id.'">Activer ce commentaire</a>';
+				$message .= ' - <a href="http://emmanuelpelletier.com/admin/comments/delete/'.$id.'">Supprimer ce commentaire</a>';
+				$email->from(array('site@emmanuelpelletier.com' => 'Bot emmanuelpelletier.com'))
+					->emailFormat('html')
+					->to('emmanuel@emmanuelpelletier.com')
+					->subject('Nouveau commentaire sur le site')
+					->send($message);
 				$this->Session->setFlash(__('Commentaire ajouté avec succès et maintenant en attente de modération.'));
 				$this->redirect($this->referer());
 			} else {
@@ -43,9 +59,6 @@ class CommentsController extends AppController {
 	}
 
 	public function admin_delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
 		$this->Comment->id = $id;
 		if (!$this->Comment->exists()) {
 			throw new NotFoundException(__('Commentaire introuvable.'));
@@ -55,6 +68,6 @@ class CommentsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->Session->setFlash(__('Commentaire impossible à supprimer.'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect($this->referer());
 	}
 }
