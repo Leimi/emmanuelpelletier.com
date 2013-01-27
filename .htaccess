@@ -1,13 +1,79 @@
+SetEnv PHP_VER 5_3
+
 <IfModule mod_rewrite.c>
    RewriteEngine On
-   Redirect 301 /cotra http://emmanuelpelletier.com/smartmap
-   Redirect 301 /irigo http://emmanuelpelletier.com/smartmap
-   Redirect 301 /covoiturage.html http://emmanuelpelletier.com/covoiturage
+
+   RewriteCond %{HTTP_HOST} ^emmanuelpelletier.com [NC]
+   RewriteRule ^(.*)$ http://manu.habite.la/$1 [L,R=301]
+
+   RewriteCond %{HTTP_HOST} ^www.emmanuelpelletier.com [NC]
+   RewriteRule ^(.*)$ http://manu.habite.la/$1 [L,R=301]
+
+   Redirect 301 /cotra http://manu.habite.la/smartmap
+   Redirect 301 /irigo http://manu.habite.la/smartmap
+   Redirect 301 /covoiturage.html http://manu.habite.la/covoiturage
+   Redirect 301 /sc2chrono http://manu.habite.la/sc2stopwatch
+   Redirect 301 /spotiboulot http://manu.habite.la/djvtech
+   Redirect 301 /cv http://manu.habite.la/developpeur-web
+   Redirect 301 /jukebox http://manu.habite.la/pianolol
    RewriteRule ^referencement$ ref-en-gros.html [L]
+   RewriteRule ^(jedeprime).* - [NC,L]
    RewriteRule ^(smartmap).* - [NC,L]
    RewriteRule ^(tshaker).* - [NC,L]
    RewriteRule ^(web-dial).* - [NC,L]
    RewriteRule ^(covoiturage).* - [NC,L]
+   RewriteRule ^(djvtech).* - [NC,L]
+   RewriteRule ^(sc2stopwatch).* - [NC,L]
+   RewriteRule ^(outils-web).* - [NC,L]
+   RewriteRule ^(sass-le-super-css).* - [NC,L]
+   RewriteRule ^(pianolol).* - [NC,L]
+   RewriteRule ^(actweevity-notifier).* - [NC,L]
+   RewriteRule ^(osef).* - [NC,L]
    RewriteRule ^$ app/webroot/    [L]
    RewriteRule (.*) app/webroot/$1 [L]
+</IfModule>
+
+
+<IfModule mod_deflate.c>
+
+  # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+  <IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+    </IfModule>
+  </IfModule>
+
+  # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
+  <IfModule filter_module>
+    FilterDeclare   COMPRESS
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+    FilterChain     COMPRESS
+    FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+  </IfModule>
+
+  <IfModule !mod_filter.c>
+    # Legacy versions of Apache
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+    AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+  </IfModule>
+
 </IfModule>
