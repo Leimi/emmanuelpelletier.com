@@ -64,8 +64,10 @@ class Page extends AppModel {
 				'created' => date('Y-m-d H:i:s')
 			);
 			$this->Slug->save($oldSlugEntry);
+			Cache::delete('Page.'.$oldSlug);
 		}
-
+		Cache::delete('Page.'.$this->data['Page']['slug']);
+		
 		return true;
 	}
 

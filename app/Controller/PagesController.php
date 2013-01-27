@@ -16,23 +16,30 @@ class PagesController extends AppController {
 	}
 
 	public function view($slug = null) {
-		$page = $this->Page->find('first', array(
-			'conditions' => array(
-				'slug' => $slug,
-				'active' => 1
-			),
-			'contain' => array(
-				'Comment' => array(
-					'conditions' => array(
-						'active' => 1
-					),
-					'order' => 'created ASC'
-				)
-			)
-		));
+		$page = Cache::read('Page.'.$slug);
 		if (!$page) {
+			$page = $this->Page->find('first', array(
+				'conditions' => array(
+					'slug' => $slug,
+					'active' => 1
+				),
+				'contain' => array(
+					'Comment' => array(
+						'conditions' => array(
+							'active' => 1
+						),
+						'order' => 'created ASC'
+					)
+				)
+			));
+			if (!empty($page['Page']['id']))
+				Cache::write('Page.'.$slug, $page);
+		}
+		if (!$page) {
+			$oldSlug = $slug;
 			$slug = $this->Page->getCurrentSlugByOldSlug($slug, array('active' => 1));
 			if ($slug) {
+				Cache::delete('Page.'.$oldSlug);
 				$this->redirect(array('controller' => 'pages', 'action' => 'view', 'slug' => $slug), 301);
 			}
 			throw new NotFoundException(__('Page introuvable'));
