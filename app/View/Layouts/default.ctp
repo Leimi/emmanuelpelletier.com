@@ -26,9 +26,9 @@
 		<!-- you dirty, dirty header -->
 		<div id="headerContainer">
 			<div class="ir"><h1>Emmanuel Pelletier, développeur web Angers</h1></div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
 			<div id="navContainer">
 				<ul id="navigation">
 					<li><?php echo $this->Html->smartLink('Accueil', '/'); ?></li>
@@ -40,15 +40,15 @@
 					<?php endif ?>
 				</ul>
 			</div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
+			<div class="moving" data-offset=0></div>
 		</div>
 	</div>
 	<div class="only-mobile only-js" id="header-toggler" data-show="Afficher le " data-hide="Cacher le ">Menu</div>
