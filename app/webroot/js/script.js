@@ -104,7 +104,8 @@ $(function() {
 		var defaults = { list: colors.slice(0), to: undefined, random: false, simple: leimi.lightDevice },
 			opts = $.extend(defaults, options),
 			currentColor = $('#header').attr('data-color'),
-			color = opts.list[0];
+			color = opts.list[0],
+			rand = function() { return Math.floor(Math.random()*(25+25+1)-25); };
 		if (opts.to === undefined) {
 			for (i = opts.list.length; i--;) {
 				if (Color.hsl2Rgb(opts.list[i]).toString() === currentColor) {
@@ -132,10 +133,16 @@ $(function() {
 			$('#headerContainer > div:nth-child(3), #headerContainer > div:nth-child(10)')        .css({backgroundColor: Color.hsl2Rgb(Color.alteredHsl(color, 0.7, 1.3)).toString()});
 			$('#headerContainer > div:nth-child(4), #headerContainer > div:nth-child(11)')        .css({backgroundColor: Color.hsl2Rgb(Color.alteredHsl(color, 0.5, 1.3)).toString()});
 			$('#headerContainer > div:nth-child(6)')                                              .css({backgroundColor: Color.hsl2Rgb(Color.alteredHsl(color, 1.3, 0.7)).toString()});
+
+			$('#headerContainer > .moving').each(function(i, item) {
+				$(this).css(Modernizr.prefixed('transform'), 'translate3d(' + rand() + 'px, 0, 0)');
+			});
 		}
 	};
 	changeHeaderColor({ to: colors[Math.round(Math.random()*(colors.length-1))] });
-
+	setInterval(function() {
+		changeHeaderColor();
+	}, 3000);
 	var closeClass= 'closed',
 	changeHeaderOffset = function() {
 		var $header = $('#header'), $toggler = $('#header-toggler'), $content = $('#container');
@@ -170,10 +177,9 @@ $(function() {
 	toggleHeader();
 	$(window).on('load resize scroll', $.debounce(250, function() {
 		changeHeaderOffset();
-		if (leimi.isMobile && menuIsSynced) unsyncMenuToMouse();
-		if (!leimi.isMobile && !menuIsSynced) syncMenuToMouse();
+		//if (leimi.isMobile && menuIsSynced) unsyncMenuToMouse();
+		//if (!leimi.isMobile && !menuIsSynced) syncMenuToMouse();
 	}));
-
 
 	var konami = [38,38,40,40,37,39,37,39,66,65],
 	typed = [],
