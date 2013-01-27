@@ -21,7 +21,7 @@
 		$menu = $('#navigation'),
 		menuChildrenSelector = 'a',
 		activeClass = 'selected',
-		ajaxLinkSelector = 'a[href^="/"]:not("[href^="/uploads/"], [href^="/img/"], [href^="/admin/"], .cb, .web, .app, .no-ajax")',
+		ajaxLinkSelector = 'a[href^="/"]:not("[href^="/uploads/"], [href^="/img/"], [href^="/files/"], [href^="/admin/"], .cb, .web, .app, .no-ajax")',
 		$body = $(document.body),
 		rootUrl = History.getRootUrl();
 
