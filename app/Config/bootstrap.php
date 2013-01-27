@@ -26,7 +26,10 @@
 setlocale(LC_TIME, 'french');
 setlocale(LC_TIME, 'fr_FR.utf8');
 // Setup a 'default' cache configuration for use in the application.
-Cache::config('default', array('engine' => 'File'));
+Cache::config('default', array(
+	'engine' => 'File',
+	'duration' => '+999 days'
+));
 
 /**
  * As of 1.3, additional rules for the inflector are added below
