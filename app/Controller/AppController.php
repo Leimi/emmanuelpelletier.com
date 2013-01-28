@@ -58,6 +58,16 @@ class AppController extends Controller {
 			$this->loadModel('Tweet');
 			$this->Tweet->refreshAll();
 		}
+		//we fill the DB with new links if it's been more than 5 hours that we did last time
+		$lastLinksUpdate = strtotime(Configure::read('Site.pocketLinksUpdateDate'));
+		$now = time();
+		if ($now > $lastLinksUpdate)
+			$diff = ceil(($now - $lastLinksUpdate)/3600);
+		if (!empty($diff) && $diff > 5) {
+			$this->loadModel('Pocketlink');
+			$loginInfo = Configure::read('Pocket.credentials');
+			$this->Pocketlink->refresh($loginInfo['login'], $loginInfo['password']);
+		}
 	}
 
 	public function beforeRender() {
@@ -78,7 +88,7 @@ class AppController extends Controller {
 		$this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'home');
 		if (!$this->Plate->prefix('admin')) {
 			$this->Auth->allow();
-		}			
+		}
 	}
 
 	/**

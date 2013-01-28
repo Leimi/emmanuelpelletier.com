@@ -6,6 +6,7 @@
 		case 'user_timeline': $title = 'Tweets'; break;
 		case 'favorites': $title = 'Favoris'; break;
 		case 'article': $title = 'Articles'; break;
+		case 'link': $title = 'Liens à voir, via Pocket'; break;
 		default: $title = 'Notes'; break;
 	}
 	?>
@@ -17,8 +18,11 @@
 	<?php if (!$type || $type == 'favorites'): ?>
 		mes <?php echo $this->Html->link('tweets favoris', array('controller' => 'tweets', 'action' => 'index', 'type' => 'favorites'), array('class' => 'favorite')); ?> (<a href="http://twitter.com/@Leimina/favorites" target="_blank">&#8599;</a>)<?php echo !$type ? ' et' : '.'  ?>
 	<?php endif ?>
-	<?php if (!$type || $type == 'article'): ?>
+	<?php if ($type == 'article'): ?>
 	mes <?php echo $this->Html->link('articles de blog', array('controller' => 'pages', 'action' => 'index'), array('class' => 'article')); if ($type) echo '.' ?>
+	<?php endif ?>
+	<?php if (!$type || $type == 'link'): ?>
+	mes <?php echo $this->Html->link('liens à voir', array('controller' => 'pocketlinks', 'action' => 'index'), array('class' => 'article')); if ($type) echo '.' ?>
 	<?php endif ?>
 	<?php if (!$type): ?>
 	récents.
@@ -34,6 +38,7 @@
 	<?php foreach ($notes as $note): 
 		$noteDate = strtotime($note[$model]['created']);
 		$isTweet = in_array($note[$model]['type'], array_keys(Configure::read('Tweet.types')));
+		$isLink = $note[$model]['type'] == 'link';
 		switch ($note[$model]['type']) {
 			case 'user_timeline': $icon = 'twitter';break;
 			case 'favorites': $icon = 'star';break;
@@ -42,7 +47,9 @@
 		?>
 		<li>
 			<?php if ($isTweet): ?>
-				<a href="http://twitter.com/<?php echo $note[$model]['user'].'/status/'.$note[$model]['id'] ?>" target="_blank" title="Le <?php echo date('d/m/Y à H\hi') ?>, cliquer pour voir le tweet en détails">
+				<a href="http://twitter.com/<?php echo $note[$model]['user'].'/status/'.$note[$model]['id'] ?>" target="_blank" title="Le <?php echo date('d/m/Y à H\hi', $noteDate) ?>, cliquer pour voir le tweet en détails">
+			<?php elseif ($isLink): ?>
+				<a href="<?php echo $note[$model]['url']; ?>" target="_blank" title="Ajouté à ma liste de lecture le <?php echo date('d/m/Y à H\hi', $noteDate) ?>, cliquer pour voir l'article">
 			<?php else: ?>
 				<a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'view', 'slug' => $note[$model]['slug'])); ?>" title="Le <?php echo date('d/m/Y à H\hi') ?>, cliquer pour voir l'article en détails">
 			<?php endif; ?>
@@ -56,8 +63,9 @@
 					if (strcmp($note[$model]['user'], 'Leimina') !== 0)
 						echo '<span class="user">'.$this->Text->autoLink('@'.$note[$model]['user'], array('target' => '_blank')).' a dit...</span>';
 					echo $this->Text->autoLink($note[$model]['name'], array('target' => '_blank'));
+				} elseif ($isLink) {
+					echo 'À voir (via Pocket) : <a href="'.$note[$model]['url'].'" target="_blank">'.$note[$model]['name'].'</a>';
 				} else {
-					// echo '<strong>'.$note[$model]['name'].'</strong>';
 					echo '&nbsp;'.$this->Html->link($note[$model]['name'], array('controller' => 'pages', 'action' => 'view', 'slug' => $note[$model]['slug']));	
 				}
 			?></p>
@@ -69,7 +77,8 @@
 		<?php if ($model == 'Note'): ?>
 		<li><?php echo $this->Html->link('Voir plus de tweets', array('controller' => 'tweets', 'action' => 'index', 'type' => 'user_timeline', 'page' => 2), array('class' => 'tweet')); ?> (<a href="http://twitter.com/@Leimina" target="_blank">&#8599;</a>)</li>
 		<li><?php echo $this->Html->link('Voir plus de favoris', array('controller' => 'tweets', 'action' => 'index', 'type' => 'favorites', 'page' => 2), array('class' => 'favorite')); ?> (<a href="http://twitter.com/@Leimina/favorites" target="_blank">&#8599;</a>)</li>
-		<li><?php echo $this->Html->link("Voir plus d'articles", array('controller' => 'pages', 'action' => 'index', 'page' => 2), array('class' => 'article')); ?></li>
+		<!--<li><?php //echo $this->Html->link("Voir plus d'articles", array('controller' => 'pages', 'action' => 'index', 'page' => 2), array('class' => 'article')); ?></li>-->
+		<li><?php echo $this->Html->link("Voir plus de liens", array('controller' => 'pocketlinks', 'action' => 'index', 'page' => 2), array('class' => 'article')); ?></li>
 		<?php else: ?>
 		<li><?php echo $this->Html->link('Voir toutes les dernières notes', array('controller' => 'notes', 'action' => 'index')); ?></li>
 		<?php endif ?>

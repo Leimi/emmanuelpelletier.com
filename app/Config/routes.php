@@ -52,6 +52,11 @@ Router::connect('/notes/articles/:page',
     array('named' => array('page'))
 );
 Router::connect('/notes/articles', array('controller' => 'pages', 'action' => 'index'));
+Router::connect('/notes/liens/:page', 
+    array('controller' => 'pocketlinks', 'action' => 'index'), 
+    array('named' => array('page'))
+);
+Router::connect('/notes/liens', array('controller' => 'pocketlinks', 'action' => 'index'));
 Router::connect('/notes/:page', 
     array('controller' => 'notes', 'action' => 'index'), 
     array('named' => array('page'))
