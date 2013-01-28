@@ -65,6 +65,7 @@
 		</div>
 		<p id="footer">
 			<a title="Contactez-moi par mail" href="mailto:&#101;&#109;&#109;&#097;&#110;&#117;&#101;&#108;&#064;&#101;&#109;&#109;&#097;&#110;&#117;&#101;&#108;&#112;&#101;&#108;&#108;&#101;&#116;&#105;&#101;&#114;&#046;&#099;&#111;&#109;">e-mail</a> &mdash; <a class="tweet" target="_blank" href="https://twitter.com/intent/user?screen_name=Leimina">twitter</a> &mdash; <a class="github-icon" target="_blank" href="https://github.com/Leimi">github</a>
+			<a href="https://plus.google.com/115995065387824929742?rel=author" class="hidden">google+</a>
 		</p>
 	</div>
 	<?php echo $this->AssetCompress->script('scripts.js', array('raw' => $rawAssets)); ?>
