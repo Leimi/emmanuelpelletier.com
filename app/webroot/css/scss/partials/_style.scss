@@ -415,6 +415,7 @@ p.rght.halfwidth { padding-left: 1%;}
 .icon-on-left { padding-left:18px;}
 .icon { margin: 0 auto; width: 16px; height: 16px;}
 .tweet { @extend .icon-on-left; @include common-sprite(twitter); }
+.github-icon { @extend .icon-on-left; @include common-sprite(blacktocat); }
 .favorite { @extend .icon-on-left; @include common-sprite(star); }
 .article { @extend .icon-on-left; @include common-sprite(newspaper); }
 
