@@ -6,12 +6,6 @@ App::uses('AppModel', 'Model');
  */
 class Project extends AppModel {
 /**
- * Use database config
- *
- * @var string
- */
-	public $useDbConfig = 'dev';
-/**
  * Display field
  *
  * @var string
