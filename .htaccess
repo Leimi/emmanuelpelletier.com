@@ -26,9 +26,11 @@ SetEnv PHP_VER 5_3
    RewriteRule ^(sc2stopwatch).* - [NC,L]
    RewriteRule ^(outils-web).* - [NC,L]
    RewriteRule ^(sass-le-super-css).* - [NC,L]
+   RewriteRule ^(js-cest-pas-que-jquery).* - [NC,L]
    RewriteRule ^(pianolol).* - [NC,L]
    RewriteRule ^(actweevity-notifier).* - [NC,L]
    RewriteRule ^(osef).* - [NC,L]
+   RewriteRule ^(drawingboard).* - [NC,L]
    RewriteRule ^$ app/webroot/    [L]
    RewriteRule (.*) app/webroot/$1 [L]
 </IfModule>

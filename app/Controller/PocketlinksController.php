@@ -18,4 +18,10 @@ class PocketlinksController extends AppController {
 
 		$this->set('title_for_layout', 'Liens partagés via Pocket - Emmanuel Pelletier');
 	}
+	
+	public function admin_update() {
+		$loginInfo = Configure::read('Pocket.credentials');
+		$this->Pocketlink->refresh($loginInfo['login'], $loginInfo['password']);
+		$this->redirect($this->referer());
+	}
 }

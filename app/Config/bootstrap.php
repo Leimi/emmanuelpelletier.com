@@ -150,3 +150,4 @@ CakePlugin::loadAll();
 Configure::write('inProduction', (!empty($_SERVER['SERVER_NAME']) && in_array($_SERVER['SERVER_NAME'], array('emmanuelpelletier.com', 'manu.habite.la'))));
 
 require APP . 'Config' . DS . 'bbootstrap.php';
+require_once APP . 'Vendor' . DS . 'autoload.php';

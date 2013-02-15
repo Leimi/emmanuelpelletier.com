@@ -153,7 +153,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .rght { float: right; }
 
-.lft, .comments-wrapper, .comments-wrapper + .comments.form { float: left; }
+.lft { float: left; }
 
 .b, b, strong { font-weight: normal; background: #fff59b; padding: 2px; }
 
@@ -171,7 +171,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .ok { color: green; }
 
-.common-sprite, .common-blacktocat, .common-headset-profiler-icon, .common-newspaper, .common-smartmap-icon, .common-star, .common-twitter, .common-yata-icon, #developpeur-applications .yata h3, #developpeur-applications .headset h3, #developpeur-applications .smartmap h3, .tweet, .github-icon, .favorite, .article { background: url('../img/common-s48a72a5ac7.png') no-repeat; }
+.common-sprite, .common-blacktocat, .common-headset-profiler-icon, .common-newspaper, .common-smartmap-icon, .common-star, .common-twitter, .common-yata-icon, .yata .project-title, .headset-profiler .project-title, .smartmap .project-title, .tweet, .github-icon, .favorite, .article { background: url('../img/common-s48a72a5ac7.png') no-repeat; }
 
 .common-blacktocat { background-position: 0 -211px; }
 
@@ -214,47 +214,46 @@ a:visited, a:visited:hover, a:visited:focus { color: #003f81; }
 
 input[type="email"], input[type="url"], input[type="text"], textarea { margin: 3px 0; padding: 5px; border: 0; border-bottom: 1px solid #DDD; border-right: 1px solid #DDD; -webkit-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3); -moz-box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3); box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.3); }
 
-.cool-link, a.download, a.web, a.github { display: block; text-align: center; line-height: 1.2em; -webkit-transition: box-shadow 0.15s linear; -moz-transition: box-shadow 0.15s linear; -o-transition: box-shadow 0.15s linear; transition: box-shadow 0.15s linear; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 3px; text-shadow: #565 0 1px 0; }
-.cool-link, a.download, a.web, a.github, .cool-link:focus, a.download:focus, a.web:focus, a.github:focus, .cool-link:hover, a.download:hover, a.web:hover, a.github:hover, .cool-link:visited, a.download:visited, a.web:visited, a.github:visited, .cool-link:visited:hover, a.download:visited:hover, a.web:visited:hover, a.github:visited:hover, .cool-link:visited:focus, a.download:visited:focus, a.web:visited:focus, a.github:visited:focus, .cool-link:active, a.download:active, a.web:active, a.github:active { color: white; border: none; }
-.cool-link:focus, a.download:focus, a.web:focus, a.github:focus, .cool-link:hover, a.download:hover, a.web:hover, a.github:hover { -webkit-box-shadow: 0 3px 4px #555555; -moz-box-shadow: 0 3px 4px #555555; box-shadow: 0 3px 4px #555555; }
-.cool-link:active, a.download:active, a.web:active, a.github:active { -webkit-box-shadow: 0 3px 4px #222222; -moz-box-shadow: 0 3px 4px #222222; box-shadow: 0 3px 4px #222222; }
+.cool-link { display: block; text-align: center; line-height: 1.2em; -webkit-transition: box-shadow 0.15s linear; -moz-transition: box-shadow 0.15s linear; -o-transition: box-shadow 0.15s linear; transition: box-shadow 0.15s linear; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; padding: 3px; margin-bottom: 10px; text-shadow: #565 0 1px 0; }
+.cool-link, .cool-link:focus, .cool-link:hover, .cool-link:visited, .cool-link:visited:hover, .cool-link:visited:focus, .cool-link:active { color: white; border: none; }
+.cool-link:focus, .cool-link:hover { -webkit-box-shadow: 0 3px 4px #555555; -moz-box-shadow: 0 3px 4px #555555; box-shadow: 0 3px 4px #555555; }
+.cool-link:active { -webkit-box-shadow: 0 3px 4px #222222; -moz-box-shadow: 0 3px 4px #222222; box-shadow: 0 3px 4px #222222; }
 
-a.download { background-color: #07B11A; }
-a.download:after { position: relative; top: -2px; content: "\0020 \2193"; }
+a.market { background-color: #07B11A; font-size: 1.2em; }
 
 a.web { font-size: 1.35em; background-color: #428EC9; }
-a.web:after { content: "\0020 \2192"; }
 
-a.github { background-color: #eee; text-shadow: 0 1px 0 white; }
+a.github { background-color: #f5f5f5; text-shadow: 0 1px 0 white; }
 a.github, a.github:focus, a.github:hover, a.github:visited, a.github:visited:hover, a.github:visited:focus, a.github:active { color: #333; border: 1px solid #D4D4D4; }
 
 a[href*="mailto"]:before { content: '@'; color: #888888; }
 
-.loading { line-height: 32px; position: absolute; top: 0; left: 0; right: 0; z-index: 10000; text-align: center; }
+.project { position: relative; margin-bottom: 30px; }
+.project:before, .project:after { content: ""; display: table; }
+.project:after { clear: both; }
+.project { *zoom: 1; }
 
-.loading-content { padding: 8px; }
+.project-title { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; }
+.project-title:hover { background-color: #dedede; }
+.yata .project-title { background-position: 0 -75px; padding-left: 50px; }
+.headset-profiler .project-title { background-position: 0 -143px; padding-left: 55px; }
+.smartmap .project-title { background-position: 0 0; padding-left: 62px; background-position: 0 -5px; }
 
-.twothird { max-width: 790px; min-width: 471px; }
+.project-tags { position: absolute; top: 20px; right: 0; }
 
-.app { position: relative; }
-.app:before, .app:after { content: ""; display: table; }
-.app:after { clear: both; }
-.app { *zoom: 1; }
+.project-tag { display: inline-block; *display: inline; *zoom: 1; padding: 0 8px; border-radius: 3px; color: white; background: #444; font-size: small; text-shadow: 0 1px 0 white; }
+.project-tag.android { background: #cdeacd; border: 1px solid #a9dba9; color: #46a546; }
+.project-tag.web { background: #c4dcee; border: 1px solid #9dc4e2; color: #347bb2; }
+.project-tag.mobile { background: #fee9cc; border: 1px solid #fdd49a; color: #f89406; }
 
-.gallery { width: 280px; margin-top: 10px; }
+.project-content, .project-imgs { float: left; }
 
-.gallery img { width: 120px; height: 200px; margin: 0 5px; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; }
+.project-content { width: 80%; position: relative; padding-right: 15px; }
 
-.download-actions { width: 170px; text-align: center; margin-top: 10px; }
-.download-actions a { margin: 0 0 20px; }
-.download-actions img { margin: 0 10px; }
+.project-imgs { float: right; padding-left: 15px; }
+.project-imgs img { max-width: 100%; width: auto; max-height: 250px; -webkit-box-shadow: 0 2px 2px #444444; -moz-box-shadow: 0 2px 2px #444444; box-shadow: 0 2px 2px #444444; }
 
-.tags { position: absolute; top: 20px; right: 0; }
-
-.tag { display: inline-block; *display: inline; *zoom: 1; padding: 0 8px; border-radius: 3px; color: white; background: #444; font-size: small; text-shadow: 0 1px 0 white; }
-.tag.android { background: #cdeacd; border: 1px solid #a9dba9; color: #46a546; }
-.tag.web { background: #c4dcee; border: 1px solid #9dc4e2; color: #347bb2; }
-.tag.mobile { background: #fee9cc; border: 1px solid #fdd49a; color: #f89406; }
+.project-links { width: 20%; float: right; text-align: center; }
 
 h2, h3 { font-style: italic; font-weight: normal; margin: 10px 0; }
 
@@ -266,22 +265,20 @@ p { margin: 10px 0; }
 
 .gray:hover { color: #222222; }
 
-.halfwidth, .comments-wrapper, .comments-wrapper + .comments.form, html.placeholder .comments .input input { width: 49%; }
+.halfwidth { width: 49%; }
 
-p.lft.halfwidth, p.comments-wrapper, .comments-wrapper + p.comments.form { padding-right: 1%; }
+p.lft.halfwidth { padding-right: 1%; }
 
-p.rght.halfwidth, p.rght.comments-wrapper, .comments-wrapper + p.rght.comments.form { padding-left: 1%; }
-
-.lft.with-app, .with-app.comments-wrapper, .comments-wrapper + .with-app.comments.form { max-width: 780px; min-width: 561px; padding-right: 10px; }
+p.rght.halfwidth { padding-left: 1%; }
 
 .only-mobile { display: none; }
 
 #container { position: relative; top: 0; }
 
-#header { margin-bottom: 20px; background-color: #006700; -webkit-transition: background 3s linear; -moz-transition: background 3s linear; -o-transition: background 3s linear; transition: background 3s linear; -webkit-perspective: 1000px; -moz-perspective: 1000px; -ms-perspective: 1000px; -o-perspective: 1000px; perspective: 1000px; -webkit-perspective-origin: center; -moz-perspective-origin: center; -ms-perspective-origin: center; -o-perspective-origin: center; perspective-origin: center; }
+#header { margin-bottom: 20px; background-color: #006700; -webkit-transition: background 3s linear; -moz-transition: background 3s linear; -o-transition: background 3s linear; transition: background 3s linear; }
 
 #headerContainer { position: relative; height: 100%; margin: 0 auto; }
-#headerContainer > div { position: absolute; width: 15%; top: -50%; height: 150%; -webkit-transition: all 3s linear; -moz-transition: all 3s linear; -o-transition: all 3s linear; transition: all 3s linear; }
+#headerContainer > div { position: absolute; width: 15%; height: 100%; top: 0; -webkit-transition: all 3s linear; -moz-transition: all 3s linear; -o-transition: all 3s linear; transition: all 3s linear; }
 #headerContainer > div:nth-child(1) { z-index: 3; margin-left: 0; }
 #headerContainer > div:nth-child(2) { z-index: 4; margin-left: 7.5%; }
 #headerContainer > div:nth-child(3) { z-index: 5; margin-left: 10.5%; }
@@ -317,60 +314,8 @@ p.rght.halfwidth, p.rght.comments-wrapper, .comments-wrapper + p.rght.comments.f
 #footer > * { opacity: .7; -webkit-transition: opacity 0.25s linear; -moz-transition: opacity 0.25s linear; -o-transition: opacity 0.25s linear; transition: opacity 0.25s linear; }
 #footer > *:hover, #footer > *:focus { opacity: 1; }
 
-#developpeur-applications > div { margin-bottom: 30px; }
-#developpeur-applications h3 { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; }
-#developpeur-applications h3:hover { background-color: #dedede; }
-#developpeur-applications .yata h3 { background-position: 0 -75px; padding-left: 50px; }
-#developpeur-applications .headset h3 { background-position: 0 -143px; padding-left: 55px; }
-#developpeur-applications .smartmap h3 { background-position: 0 0; padding-left: 62px; background-position: 0 -5px; }
-#developpeur-applications .smartmap .twothird { padding-right: 10px; max-width: 600px; min-width: 461px; }
-#developpeur-applications .smartmap .gallery { width: auto; }
-#developpeur-applications .smartmap .gallery img { width: 162px; height: 270px; }
-
-#pro > div { width: 30%; margin: 0; float: left; }
-#pro #skills-back { margin: 0 5%; text-align: center; }
-#pro #skills-back li { margin-left: 0; margin-right: auto; }
-#pro #skills-other { float: right; text-align: right; }
-#pro #skills-other li { margin-left: auto; margin-right: 0; }
-#pro ul { margin: 0; padding: 0; list-style: none; }
-#pro li { margin: 5px 0; }
-#pro li a { background: transparent; color: #444; border-bottom: 1px dashed #5180e9; -webkit-transition: border-color 0.35s linear; -moz-transition: border-color 0.35s linear; -o-transition: border-color 0.35s linear; transition: border-color 0.35s linear; }
-#pro li a.selected { border-bottom: 1px solid transparent; color: #5180e9; }
-#pro li span { color: #5180e9; }
-#pro .details { width: auto !important; position: relative; margin: 30px auto 0; text-align: center; }
-#pro .details:before, #pro .details:after { content: ""; display: table; }
-#pro .details:after { clear: both; }
-#pro .details { *zoom: 1; }
-.lteie7 #pro .details { width: 100% !important; }
-#pro .details p { margin: 0; text-align: left; z-index: 30; position: relative; }
-#pro .details img { z-index: 10; }
-
-#html p, #js p, #css p { margin: 0 0 0 80px; }
-
-#html img, #js img, #css img { float: left; clear: left; margin: 0 10px 10px 0; }
-
-#cake p, #php p, #ror p, #sql p { width: 35%; }
-
-#cake img, #php img, #ror img, #sql img { position: absolute; top: 10px; left: 50%; }
-
-#cake img { margin-left: -65px; }
-
-#php img { margin-left: -87px; }
-
-#ror img { margin-left: -55px; }
-
-#sql img { margin-left: -84px; }
-
-#java p, #ref p, #ang p { margin: 0 80px 0 0; }
-
-#java img, #ref img, #ang img { float: right; clear: right; margin: 0 0 10px 10px; }
-
 .notes-list { list-style-type: none; margin: 20px auto 0; padding: 0; max-width: 660px; }
 .notes-list.comments { padding: 12px 0 0 0; margin: 0; }
-
-.comments-wrapper { padding-right: 1%; }
-
-.comments-wrapper + .comments.form { padding-left: 1%; }
 
 .notes-list li { margin: 0; padding: 15px 10px; border-bottom: 1px solid #d3d3d3; -webkit-transition: background-color 0.25s linear; -moz-transition: background-color 0.25s linear; -o-transition: background-color 0.25s linear; transition: background-color 0.25s linear; }
 .notes-list li:before, .notes-list li:after { content: ""; display: table; }
@@ -407,15 +352,6 @@ p.rght.halfwidth, p.rght.comments-wrapper, .comments-wrapper + p.rght.comments.f
 
 .article-date { font-size: small; font-style: italic; }
 
-.comments fieldset { border: none; }
-.comments .submit { float: right; }
-.comments textarea { width: 100%; }
-html.placeholder .comments .input input { margin-right: 2%; }
-html.placeholder .comments .input input:last-child { margin-right: 0; }
-html.placeholder .comments label { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-html.placeholder .comments label.focusable:active, html.placeholder .comments label.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-html.noplaceholder .comments .input input { width: 100%; }
-
 /* ColorBox Core Style: The following CSS is consistent between example themes and should not be altered.
 */
 #colorbox, #cboxOverlay, #cboxWrapper { position: absolute; top: 0; left: 0; z-index: 9999; overflow: hidden; color: white; }
@@ -450,8 +386,11 @@ html.noplaceholder .comments .input input { width: 100%; }
 
 #PageTextile { font-family: Georgia, serif; }
 
+form[action^="/admin/"] input[type=text], form[action^="/admin/"] textarea { width: 100%; }
+form[action^="/admin/"] textarea { min-height: 500px; }
+
 /* appareils mobiles : réso max qHD pour les Android haut de gamme (540px de large ou de long suivant l'orientation du tél) et iPhone 4 */
-@media screen and (max-width: 640px), screen and (-webkit-min-device-pixel-ratio: 2) { #content-wrapper, #footer, *.halfwidth, *.comments-wrapper, .comments-wrapper + *.comments.form, html.placeholder .comments .input input, *.twothird, *.rght, *.lft, *.comments-wrapper, .comments-wrapper + *.comments.form, p.lft.halfwidth, p.comments-wrapper, .comments-wrapper + p.comments.form, p.rght.halfwidth, p.rght.comments-wrapper, .comments-wrapper + p.rght.comments.form, *.with-app { width: auto; min-width: 0 !important; max-width: none !important; margin: auto; padding: 0; float: none; position: static; word-wrap: break-word; }
+@media screen and (max-width: 640px), screen and (-webkit-min-device-pixel-ratio: 2) { #content-wrapper, #footer, *.halfwidth, *.twothird, *.rght, *.lft, p.lft.halfwidth, p.rght.halfwidth, *.with-app, .project-content, .project-links { width: auto; min-width: 0 !important; max-width: none !important; margin: auto; padding: 0; float: none; position: static; word-wrap: break-word; }
   #container { top: auto; }
   #content-wrapper { padding: 15px 5px 0 !important; }
   .no-js #header { position: static; }
@@ -471,13 +410,13 @@ html.noplaceholder .comments .input input { width: 100%; }
   #navigation a, #navigation a:active, #navigation a:visited { padding: 0; min-width: 0; height: auto; line-height: normal !important; }
   .only-mobile { display: block; }
   span.only-mobile { display: inline; }
-  .cool-link, a.download, a.web, a.github { padding: 15px 10px; font-size: 1.1em; }
+  .cool-link { padding: 15px 10px; font-size: 1.1em; }
   #cake p, #php p, #ror p, #sql p { width: auto; }
   #cake img, #php img, #ror img, #sql img { display: none !important; visibility: hidden; }
   input[type="email"], input[type="url"], input[type="text"], textarea { padding: 5px !important; width: 100% !important; margin: 3px 0 !important; }
   #footer { margin: 30px 0 50px; }
   #developpeur-applications .smartmap .twothird { max-width: none; min-width: 0; }
-  .tags { position: relative; top: 0; } }
+  .project-tags { position: relative; top: 0; } }
 @media print { * { background: transparent !important; color: black !important; box-shadow: none !important; text-shadow: none !important; }
   a, a:visited { text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }

@@ -32,8 +32,8 @@
 			<div id="navContainer">
 				<ul id="navigation">
 					<li><?php echo $this->Html->smartLink('Accueil', '/'); ?></li>
-					<li><?php echo $this->Html->smartLink('Applications', array('controller' => 'pages', 'action' => 'view', 'slug' => 'applications', 'admin' => false)); ?></li>
-					<li><?php echo $this->Html->smartLink('CV', array('controller' => 'pages', 'action' => 'view', 'slug' => 'developpeur-web', 'admin' => false)); ?></li>
+					<li><?php echo $this->Html->smartLink('Applications', array('controller' => 'projects', 'action' => 'index', 'admin' => false)); ?></li>
+					<!-- <li><?php //echo $this->Html->smartLink('CV', array('controller' => 'pages', 'action' => 'view', 'slug' => 'developpeur-web', 'admin' => false)); ?></li> -->
 					<li><?php echo $this->Html->smartLink('Notes', array('controller' => 'notes', 'action' => 'index', 'admin' => false)); ?></li>
 					<?php if ($this->Session->read('Auth.User.id')): ?>
 					<li><?php echo $this->Html->smartLink('Admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true)); ?></li>

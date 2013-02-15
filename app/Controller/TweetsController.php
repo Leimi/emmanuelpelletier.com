@@ -20,4 +20,9 @@ class TweetsController extends AppController {
 		$this->paginate = $paginate;
 		$this->set('tweets', $this->paginate());
 	}
+	
+	public function admin_update() {
+		$this->Tweet->refreshAll();
+		$this->redirect($this->referer());
+	}
 }

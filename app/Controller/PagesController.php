@@ -1,6 +1,35 @@
 <?php
 App::uses('AppController', 'Controller');
 class PagesController extends AppController {
+	var $uses = array('Page', 'Project', 'Tweet', 'Pocketlink');
+
+
+	public function home() {
+		$page = $this->Page->find('first', array(
+			'conditions' => array(
+				'slug' => 'home',
+				'active' => 1
+			)
+		));
+		$tweets = $this->Tweet->find('tweets', array(
+			'limit' => 5
+		));
+		$links = $this->Pocketlink->find('links', array(
+			'limit' => 5
+		));
+		$projects = $this->Project->find('all' , array(
+			'conditions' => array(
+				'highlight' => 1
+			),
+			'order' => 'order ASC'
+		));
+		
+
+		$this->set(compact('page', 'tweets', 'links','projects'));
+		$this->set('title_for_layout', $page['Page']['title']);
+		$this->set('description_for_layout',  $page['Page']['description']);
+	}
+
 	public function index($type = null) {
 		$paginate = array(
 			'articles',
@@ -22,14 +51,6 @@ class PagesController extends AppController {
 				'conditions' => array(
 					'slug' => $slug,
 					'active' => 1
-				),
-				'contain' => array(
-					'Comment' => array(
-						'conditions' => array(
-							'active' => 1
-						),
-						'order' => 'created ASC'
-					)
 				)
 			));
 			if (!empty($page['Page']['id']))
@@ -54,8 +75,9 @@ class PagesController extends AppController {
 		$data = $this->Page->find('all' , array(
 			'order' => array('type', 'name')
 		));
-		
+		$projects = $this->Project->find('all', array('order' => 'order'));
 		$this->set('pages', $data);
+		$this->set('projects', $projects);
 	}
 
 	public function admin_view($id = null) {

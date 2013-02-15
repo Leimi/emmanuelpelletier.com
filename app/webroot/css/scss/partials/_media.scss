@@ -1,6 +1,6 @@
 /* appareils mobiles : réso max qHD pour les Android haut de gamme (540px de large ou de long suivant l'orientation du tél) et iPhone 4 */
 @media screen and (max-width: 640px), screen and (-webkit-min-device-pixel-ratio: 2) {
-	#content-wrapper, #footer, *.halfwidth, *.twothird, *.rght, *.lft, p.lft.halfwidth, p.rght.halfwidth, *.with-app {
+	#content-wrapper, #footer, *.halfwidth, *.twothird, *.rght, *.lft, p.lft.halfwidth, p.rght.halfwidth, *.with-app, .project-content, .project-links {
 		width: auto; 
 		min-width: 0 !important;
 		max-width: none !important;
@@ -94,7 +94,7 @@
 			.twothird { max-width: none; min-width: 0;}
 		}
 	}
-	.tags {
+	.project-tags {
 	  position: relative;
 	  top: 0;
 	}

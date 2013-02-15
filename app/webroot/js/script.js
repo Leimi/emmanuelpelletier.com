@@ -134,9 +134,9 @@ $(function() {
 			$('#headerContainer > div:nth-child(4), #headerContainer > div:nth-child(11)')        .css({backgroundColor: Color.hsl2Rgb(Color.alteredHsl(color, 0.5, 1.3)).toString()});
 			$('#headerContainer > div:nth-child(6)')                                              .css({backgroundColor: Color.hsl2Rgb(Color.alteredHsl(color, 1.3, 0.7)).toString()});
 
-			$('#headerContainer > .moving').each(function(i, item) {
-				$(this).css(Modernizr.prefixed('transform'), 'translate3d(' + rand() + 'px, 0, 0)');
-			});
+			//$('#headerContainer > .moving').each(function(i, item) {
+			//	$(this).css(Modernizr.prefixed('transform'), 'translate3d(' + rand() + 'px, 0, 0)');
+			//});
 		}
 	};
 	changeHeaderColor({ to: colors[Math.round(Math.random()*(colors.length-1))] });

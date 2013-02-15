@@ -1,0 +1,1 @@
+<?php echo $this->element('project', array('project' => $project)); ?>

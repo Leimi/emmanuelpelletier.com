@@ -84,25 +84,22 @@ input[type="email"], input[type="url"], input[type="text"], textarea {
   @include box-shadow(0 2px 2px #444);
   @include border-radius(3px);
   padding: 3px;
+  margin-bottom: 10px;
   &, &:focus, &:hover, &:visited, &:visited:hover, &:visited:focus, &:active { color: white; border: none; }
   &:focus, &:hover { @include box-shadow(0 3px 4px #555); }
   &:active { @include box-shadow(0 3px 4px #222); }
   text-shadow: #565 0 1px 0;
 }
-a.download {
-  @extend .cool-link;
+a.market {
   background-color: #07B11A;
-  &:after { position: relative;top:-2px;content: "\0020 \2193"; }
+  font-size: 1.2em;
 }
 a.web { 
-  @extend .cool-link;
   font-size: 1.35em;
   background-color: #428EC9;
-  &:after { content: "\0020 \2192"; }
 }
 a.github {
-  @extend .cool-link;
-  background-color: #eee;
+  background-color: #f5f5f5;
   &, &:focus, &:hover, &:visited, &:visited:hover, &:visited:focus, &:active { color: #333; border: 1px solid #D4D4D4; }
 
   text-shadow: 0 1px 0 white;
@@ -111,44 +108,24 @@ a[href*="mailto"]:before {
   content: '@';
   color: lighten($fontColor, 40%);
 }
-
-.loading { 
-  line-height: 32px;
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 10000;
-  text-align: center;
-}
-.loading-content {
-  padding: 8px; 
-}
-
-.twothird {
-  max-width:790px;
-  min-width: 471px;
-}
-.app {
+.project {
   @include cf;
   position: relative;
+  margin-bottom: 30px;
 }
-.gallery { width: 280px; margin-top: 10px;}
-.gallery img {
-  width: 120px;
-  height: 200px;
-  margin: 0 5px;
-  @include box-shadow(0 2px 2px #444);
-}
-.download-actions { width: 170px; text-align: center; margin-top: 10px;
-  a { margin: 0 0 20px; }
-  img { margin: 0 10px; }
-}
+.project-title { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; 
+    &:hover { background-color: #dedede; }
+  .yata & { @include common-sprite(yata-icon); padding-left: 50px;}
 
-.tags {
+  .headset-profiler & { @include common-sprite(headset-profiler-icon); padding-left: 55px; }
+  .smartmap & { @include common-sprite(smartmap-icon); padding-left: 62px; background-position: 0 -5px; }
+}
+.project-tags {
   position: absolute;
   top: 20px;
   right: 0;
 }
-.tag {
+.project-tag {
   @include display-ib;
   padding: 0 8px;
   border-radius: 3px;
@@ -173,6 +150,33 @@ a[href*="mailto"]:before {
   }
 }
 
+.project-content, .project-imgs {
+  float: left;
+}
+
+.project-content {
+  width: 80%;
+  position: relative;
+  padding-right: 15px;
+}
+
+.project-imgs {
+  float: right;
+  padding-left: 15px;
+  img {
+    max-width: 100%;
+    width: auto;
+    max-height: 250px;
+    @include box-shadow(0 2px 2px #444);
+  }
+}
+
+.project-links {
+  width: 20%;
+  float: right;
+  text-align: center;
+}
+
 
 h2, h3 { font-style: italic; font-weight: normal; margin: 10px 0;}
 h2 { margin: 20px 0 10px;}
@@ -185,7 +189,6 @@ p { margin: 10px 0;}
 }
 p.lft.halfwidth { padding-right: 1%;}
 p.rght.halfwidth { padding-left: 1%;}
-.lft.with-app { max-width: 780px; min-width: 561px; padding-right: 10px; }
 .only-mobile {
   display: none;
 }
@@ -198,8 +201,6 @@ p.rght.halfwidth { padding-left: 1%;}
   margin-bottom: 20px;
   background-color: darken(green, 5%);
   @include transition(background 3s linear);
-  @include perspective(1000px);
-  @include perspective-origin(center);
 }
 #headerContainer { 
   position: relative; 
@@ -208,8 +209,8 @@ p.rght.halfwidth { padding-left: 1%;}
   > div {
     position: absolute;
     width: 15%;
-    top: -50%;
-    height: 150%;
+    height: 100%;
+    top: 0;
     @include transition(all 3s linear);
   }
   > div:nth-child(1) {  z-index:3; margin-left:  0;    }
@@ -293,87 +294,55 @@ p.rght.halfwidth { padding-left: 1%;}
   }
 }
 
-#developpeur-applications {
-  > div { margin-bottom: 30px;}
-  h3 { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; 
-    &:hover { background-color: #dedede;}
-  }
-  .yata h3 { @include common-sprite(yata-icon); padding-left: 50px;}
-  .headset h3 { @include common-sprite(headset-profiler-icon); padding-left: 55px; }
-  .smartmap {
-    h3 { @include common-sprite(smartmap-icon); padding-left: 62px; background-position: 0 -5px; }
-    .twothird { padding-right: 10px; max-width: 600px; min-width: 461px;}
-    .gallery { width: auto;}
-    .gallery img { width: 162px; height: 270px;  }
-  }
-}
 
-
-
-#pro {
-  > div { width: 30%; margin: 0; float: left; }
-  #skills-back { margin: 0 5%; text-align: center; 
-    li { margin-left: 0; margin-right: auto; }
-  }
-  #skills-other { float: right; text-align: right; 
-    li { margin-left: auto; margin-right: 0; }
-  }
-  ul { margin: 0; padding: 0; list-style: none; }
-  li { margin: 5px 0; 
-    a {
-      background: transparent;
-      color: #444; 
-      border-bottom: 1px dashed #5180e9;
-      @include transition(border-color .35s linear);
-      &.selected {
-        border-bottom: 1px solid transparent;
-        color: #5180e9;
-      }
-    }
-    span { color: #5180e9;}
-  }
-  .details { 
-    @include cf;
-    width: auto !important;
-    .lteie7 & { width: 100% !important; }
-    position: relative;
-    margin: 30px auto 0;
-    text-align:center;
-    p {  margin: 0; text-align: left; z-index: 30; position: relative; }
-    img { z-index: 10; }
-  }
-}
-#html p, #js p, #css p { margin: 0 0 0 80px;  }
-#html img, #js img, #css img { float: left; clear: left; margin: 0 10px 10px 0; }
-#cake p, #php p, #ror p, #sql p { width: 35%; }
-#cake img, #php img, #ror img, #sql img { position: absolute; top: 10px; left: 50%; }
-#cake img { margin-left: -65px; }
-#php img { margin-left: -87px; }
-#ror img { margin-left: -55px; }
-#sql img { margin-left: -84px; }
-#java p, #ref p, #ang p { margin: 0 80px 0 0; }
-#java img, #ref img, #ang img { float: right; clear: right; margin: 0 0 10px 10px; }
-
-
-
-
-
-
-
+// #pro {
+//   > div { width: 30%; margin: 0; float: left; }
+//   #skills-back { margin: 0 5%; text-align: center; 
+//     li { margin-left: 0; margin-right: auto; }
+//   }
+//   #skills-other { float: right; text-align: right; 
+//     li { margin-left: auto; margin-right: 0; }
+//   }
+//   ul { margin: 0; padding: 0; list-style: none; }
+//   li { margin: 5px 0; 
+//     a {
+//       background: transparent;
+//       color: #444; 
+//       border-bottom: 1px dashed #5180e9;
+//       @include transition(border-color .35s linear);
+//       &.selected {
+//         border-bottom: 1px solid transparent;
+//         color: #5180e9;
+//       }
+//     }
+//     span { color: #5180e9;}
+//   }
+//   .details { 
+//     @include cf;
+//     width: auto !important;
+//     .lteie7 & { width: 100% !important; }
+//     position: relative;
+//     margin: 30px auto 0;
+//     text-align:center;
+//     p {  margin: 0; text-align: left; z-index: 30; position: relative; }
+//     img { z-index: 10; }
+//   }
+// }
+// #html p, #js p, #css p { margin: 0 0 0 80px;  }
+// #html img, #js img, #css img { float: left; clear: left; margin: 0 10px 10px 0; }
+// #cake p, #php p, #ror p, #sql p { width: 35%; }
+// #cake img, #php img, #ror img, #sql img { position: absolute; top: 10px; left: 50%; }
+// #cake img { margin-left: -65px; }
+// #php img { margin-left: -87px; }
+// #ror img { margin-left: -55px; }
+// #sql img { margin-left: -84px; }
+// #java p, #ref p, #ang p { margin: 0 80px 0 0; }
+// #java img, #ref img, #ang img { float: right; clear: right; margin: 0 0 10px 10px; }
 
 
 .notes-list { list-style-type: none; margin: 20px auto 0; padding: 0; max-width: 660px; 
  &.comments { padding: 12px 0 0 0; margin: 0;  }
 }
-.comments-wrapper, .comments-wrapper + .comments.form {
-  // max-width: 49%;
-  // width: 49%;
-  // float: left;
-  @extend .halfwidth;
-  @extend .lft;
-}
-.comments-wrapper { padding-right: 1%;}
-.comments-wrapper + .comments.form{ padding-left: 1%;}
 .notes-list li {
   @include cf;
   margin: 0;
@@ -424,25 +393,6 @@ p.rght.halfwidth { padding-left: 1%;}
   font-style: italic;
 }
 
-.comments {
-  fieldset {
-    border: none;
-  }
-  .submit { float: right;}
-  textarea { width: 100%; }
-  html.placeholder & {
-    .input input { 
-      @extend .halfwidth;
-      margin-right: 2%;
-      &:last-child { margin-right: 0;}
-    }
-    label { @include visually-hidden }
-  }
-  html.noplaceholder & {
-    .input input { width: 100%;}
-  }
-}
-
 /*
     ColorBox Core Style:
     The following CSS is consistent between example themes and should not be altered.
@@ -476,3 +426,12 @@ p.rght.halfwidth { padding-left: 1%;}
 }
 #js-editor { height: 300px;}
 #PageTextile { font-family: $baseFontFamily;}
+
+form[action^="/admin/"] {
+  input[type=text], textarea {
+    width: 100%;
+  }
+  textarea {
+    min-height: 500px;
+  }
+}

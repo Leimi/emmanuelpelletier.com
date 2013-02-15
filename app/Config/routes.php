@@ -31,7 +31,7 @@ Router::parseExtensions('json', 'xml', 'rss', 'ajax');
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-Router::connect('/', array('controller' => 'pages', 'action' => 'view', 'home'));
+Router::connect('/', array('controller' => 'pages', 'action' => 'home'));
 /**
  * short routes for login/logout admin false to prevent issues sometimes
  */
@@ -62,13 +62,12 @@ Router::connect('/notes/:page',
     array('named' => array('page'))
 );
 Router::connect('/notes', array('controller' => 'notes', 'action' => 'index'));
+Router::connect('/applications', array('controller' => 'projects', 'action' => 'index'));
 Router::connect(
     '/:slug', 
     array('controller' => 'pages', 'action' => 'view'), 
     array('pass' => array('slug'))
 );
-Router::connect('/page/*', array('controller' => 'pages', 'action' => 'display'));
-
 /*
  * Localization
  *#!#/
