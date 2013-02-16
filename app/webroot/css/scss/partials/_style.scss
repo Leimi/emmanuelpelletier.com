@@ -116,7 +116,7 @@ a[href*="mailto"]:before {
 .project-title { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; 
     &:hover { background-color: #dedede; }
   .yata & { @include common-sprite(yata-icon); padding-left: 50px;}
-  .parkangers & { @include common-sprite(parkangers-icon); padding-left: 50px;}
+  .parkangers & { @include common-sprite(parkangers-icon); padding-left: 55px;}
   .headset-profiler & { @include common-sprite(headset-profiler-icon); padding-left: 55px; }
   .smartmap & { @include common-sprite(smartmap-icon); padding-left: 62px; background-position: 0 -5px; }
 }

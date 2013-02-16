@@ -238,7 +238,7 @@ a[href*="mailto"]:before { content: '@'; color: #888888; }
 .project-title { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; }
 .project-title:hover { background-color: #dedede; }
 .yata .project-title { background-position: 0 -75px; padding-left: 50px; }
-.parkangers .project-title { background-position: 0 -211px; padding-left: 50px; }
+.parkangers .project-title { background-position: 0 -211px; padding-left: 55px; }
 .headset-profiler .project-title { background-position: 0 -143px; padding-left: 55px; }
 .smartmap .project-title { background-position: 0 0; padding-left: 62px; background-position: 0 -5px; }
 
