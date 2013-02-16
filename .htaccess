@@ -16,6 +16,7 @@ SetEnv PHP_VER 5_3
    Redirect 301 /spotiboulot http://manu.habite.la/djvtech
    Redirect 301 /cv http://manu.habite.la/developpeur-web
    Redirect 301 /jukebox http://manu.habite.la/pianolol
+   Redirect 301 /img/common/moi.jpg http://manu.habite.la/img/pages/moi.jpg
    RewriteRule ^referencement$ ref-en-gros.html [L]
    RewriteRule ^(jedeprime).* - [NC,L]
    RewriteRule ^(smartmap).* - [NC,L]
@@ -30,6 +31,7 @@ SetEnv PHP_VER 5_3
    RewriteRule ^(pianolol).* - [NC,L]
    RewriteRule ^(actweevity-notifier).* - [NC,L]
    RewriteRule ^(osef).* - [NC,L]
+   RewriteRule ^(parkangers).* - [NC,L]
    RewriteRule ^(drawingboard).* - [NC,L]
    RewriteRule ^$ app/webroot/    [L]
    RewriteRule (.*) app/webroot/$1 [L]

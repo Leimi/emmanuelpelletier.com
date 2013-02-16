@@ -171,19 +171,21 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .ok { color: green; }
 
-.common-sprite, .common-blacktocat, .common-headset-profiler-icon, .common-newspaper, .common-smartmap-icon, .common-star, .common-twitter, .common-yata-icon, .yata .project-title, .headset-profiler .project-title, .smartmap .project-title, .tweet, .github-icon, .favorite, .article { background: url('../img/common-s48a72a5ac7.png') no-repeat; }
+.common-sprite, .common-blacktocat, .common-headset-profiler-icon, .common-newspaper, .common-parkangers-icon, .common-smartmap-icon, .common-star, .common-twitter, .common-yata-icon, .yata .project-title, .parkangers .project-title, .headset-profiler .project-title, .smartmap .project-title, .tweet, .github-icon, .favorite, .article { background: url('../img/common-sb304701b79.png') no-repeat; }
 
-.common-blacktocat { background-position: 0 -211px; }
+.common-blacktocat { background-position: 0 -279px; }
 
 .common-headset-profiler-icon { background-position: 0 -143px; }
 
-.common-newspaper { background-position: 0 -319px; }
+.common-newspaper { background-position: 0 -387px; }
+
+.common-parkangers-icon { background-position: 0 -211px; }
 
 .common-smartmap-icon { background-position: 0 0; }
 
-.common-star { background-position: 0 -283px; }
+.common-star { background-position: 0 -351px; }
 
-.common-twitter { background-position: 0 -247px; }
+.common-twitter { background-position: 0 -315px; }
 
 .common-yata-icon { background-position: 0 -75px; }
 
@@ -236,6 +238,7 @@ a[href*="mailto"]:before { content: '@'; color: #888888; }
 .project-title { min-height: 48px; padding: 10px 0 0 0; margin-bottom: 0; background: transparent none no-repeat center left; }
 .project-title:hover { background-color: #dedede; }
 .yata .project-title { background-position: 0 -75px; padding-left: 50px; }
+.parkangers .project-title { background-position: 0 -211px; padding-left: 50px; }
 .headset-profiler .project-title { background-position: 0 -143px; padding-left: 55px; }
 .smartmap .project-title { background-position: 0 0; padding-left: 62px; background-position: 0 -5px; }
 
@@ -342,13 +345,13 @@ p.rght.halfwidth { padding-left: 1%; }
 
 .icon { margin: 0 auto; width: 16px; height: 16px; }
 
-.tweet { background-position: 0 -247px; }
+.tweet { background-position: 0 -315px; }
 
-.github-icon { background-position: 0 -211px; }
+.github-icon { background-position: 0 -279px; }
 
-.favorite { background-position: 0 -283px; }
+.favorite { background-position: 0 -351px; }
 
-.article { background-position: 0 -319px; }
+.article { background-position: 0 -387px; }
 
 .article-date { font-size: small; font-style: italic; }
 
